@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-in-the-lastchancenomodal-component-remove-the-user-facing-line-that-cat-is-giving-you-the-side-eye-right-now-from-the-modal-description-so-it-no-longer-appears-anywhere-in-the-popup-ui",
-      "featureTitle": "In the \"LastChanceNoModal\" component, remove the user-facing line \"That cat is giving you the side-eye right now...\" from the modal description so it no longer appears anywhere in the popup UI.",
+      "featureId": "feature-update-frontend-index-html-head-metadata-to-match-the-provided-screenshot-guidance-by-1-changing-the-document-title-to-for-you-and-2-adding-open-graph-meta-tags-for-og-title-og-description-and-og-type-with-the-following-values-og-title-for-you-og-description-something-special-made-with-love-og-type-website-also-remove-the-current-long-title-text-so-the-page-does-not-include-words-like-interactive-project-or-demo-in-the-title",
+      "featureTitle": "Update `frontend/index.html` `<head>` metadata to match the provided screenshot guidance by (1) changing the document `<title>` to `For You ❤️`, and (2) adding Open Graph meta tags for `og:title`, `og:description`, and `og:type` with the following values:\n- `og:title`: `For You ❤️`\n- `og:description`: `Something special, made with love 💞`\n- `og:type`: `website`\nAlso remove the current long title text so the page does not include words like “interactive”, “project”, or “demo” in the title.",
       "files": [
-        "frontend/src/components/LastChanceNoModal.tsx"
+        "frontend/index.html"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,24 +16,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-replace-the-angry-cat-in-the-no-modal-with-a-cute-little-angry-panda-by-updating-the-modal-image-to-use-a-new-panda-asset-and-updating-any-related-user-facing-text-alt-text-so-it-no-longer-refers-to-a-cat",
-      "featureTitle": "Replace the angry cat in the No modal with a cute little angry panda by updating the modal image to use a new panda asset and updating any related user-facing text/alt text so it no longer refers to a cat.",
-      "files": [
-        "frontend/src/components/LastChanceNoModal.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
       ],
       "confidence": "high"
     }

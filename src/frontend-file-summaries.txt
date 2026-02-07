@@ -7,5 +7,6 @@
   "frontend/tailwind.config.js": "Tailwind configuration extended with romantic pink color tokens, increased border radius, custom shadows, rounded font family, and animation utilities.",
   "frontend/src/components/InteractiveLoveLetter.tsx": "Interactive love letter component that progressively reveals paragraphs from valentineCopy.ts with navigation controls, progress indicators, and tap-to-revisit functionality for previously read sections.",
   "frontend/src/components/FloatingThoughts.tsx": "Floating \"You are in my thoughts\" component with animated words and surrounding hearts that respond to hover and touch interactions with scale and color transitions.",
-  "frontend/src/components/LastChanceNoModal.tsx": "Modal component that displays a cute little angry panda image with a \"last chance\" message when the user clicks the \"No\" button, featuring a prominent primary action to confirm \"Yes\" and dismissal options via close button, overlay click, or Escape key."
+  "frontend/src/components/LastChanceNoModal.tsx": "Modal component that displays a cute little angry panda image with a \"last chance\" message when the user clicks the \"No\" button, featuring a prominent primary action to confirm \"Yes\" and dismissal options via close button, overlay click, or Escape key.",
+  "frontend/index.html": "HTML entry point with updated title \"For You ❤️\" and Open Graph metadata tags for social sharing."
 }

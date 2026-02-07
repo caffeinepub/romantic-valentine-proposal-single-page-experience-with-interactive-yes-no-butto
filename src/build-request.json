@@ -1,56 +1,39 @@
 {
   "kind": "build_request",
-  "title": "Update No-modal copy and replace angry cat with cute angry panda",
+  "title": "Update page title and Open Graph metadata",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "In the \"LastChanceNoModal\" component, remove the user-facing line \"That cat is giving you the side-eye right now...\" from the modal description so it no longer appears anywhere in the popup UI.",
+      "text": "Update `frontend/index.html` `<head>` metadata to match the provided screenshot guidance by (1) changing the document `<title>` to `For You ❤️`, and (2) adding Open Graph meta tags for `og:title`, `og:description`, and `og:type` with the following values:\n- `og:title`: `For You ❤️`\n- `og:description`: `Something special, made with love 💞`\n- `og:type`: `website`\nAlso remove the current long title text so the page does not include words like “interactive”, “project”, or “demo” in the title.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Remove this line\n\nThat cat is giving you the side-eye right now..."
+          "I need to make one change"
         ]
       },
       "acceptanceCriteria": [
-        "When the No modal is opened, the text \"That cat is giving you the side-eye right now...\" is not present in the DOM or visible UI.",
-        "No extra blank spacing/empty paragraph is left where the removed line used to be."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Replace the angry cat in the No modal with a cute little angry panda by updating the modal image to use a new panda asset and updating any related user-facing text/alt text so it no longer refers to a cat.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "replace cat with cute little angry panda"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The No modal image is loaded from a panda asset under /assets/generated/ and no longer references /assets/generated/angry-sideeye-cat.dim_768x768.png.",
-        "The image alt text (and any other user-facing references in the modal) refers to a panda, not a cat.",
-        "The modal still renders correctly (image sizing/spacing preserved) and the primary/secondary buttons continue to function as before."
+        "`frontend/index.html` `<title>` is exactly `For You ❤️`.",
+        "`frontend/index.html` contains `<meta property=\"og:title\" content=\"For You ❤️\">`.",
+        "`frontend/index.html` contains `<meta property=\"og:description\" content=\"Something special, made with love 💞\">`.",
+        "`frontend/index.html` contains `<meta property=\"og:type\" content=\"website\">`.",
+        "The previous title `Romantic Valentine Proposal Single-Page Experience with Interactive Yes/No Buttons` no longer appears anywhere in `frontend/index.html`."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (compose existing UI components only).",
-    "Keep the backend as-is; no backend changes are required for this UI-only update."
+    "Do not modify any files under `frontend/src/components/ui` (compose them instead).",
+    "Do not edit files listed in `frontend.immutablePaths` in SYSTEM_CONTEXT."
   ],
   "nonGoals": [
-    "Changing the overall Valentine proposal flow, evasive No button behavior, or any other copy outside the No modal.",
-    "Adding new backend logic or persistence."
+    "Adding new backend functionality or persistence.",
+    "Adding additional social metadata tags (e.g., Twitter cards) beyond what is requested."
   ],
   "imageRequirements": {
-    "required": [
-      "Cute little angry panda giving a side-eye look, clean illustration style, transparent background (angry-sideeye-panda.dim_768x768.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

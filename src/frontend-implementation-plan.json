@@ -1,41 +1,23 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update No-modal copy and swap angry cat image for angry panda",
+  "title": "Update HTML title and Open Graph metadata",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Remove the cat side-eye line from the LastChanceNoModal description without leaving empty spacing.",
+      "summary": "Update the HTML document title and add required Open Graph meta tags in frontend/index.html.",
       "acceptanceCriteria": [
-        "When the No modal is opened, the text \"That cat is giving you the side-eye right now...\" is not present in the DOM or visible UI.",
-        "No extra blank spacing/empty paragraph is left where the removed line used to be."
+        "`frontend/index.html` `<title>` is exactly `For You ❤️`.",
+        "`frontend/index.html` contains `<meta property=\"og:title\" content=\"For You ❤️\">`.",
+        "`frontend/index.html` contains `<meta property=\"og:description\" content=\"Something special, made with love 💞\">`.",
+        "`frontend/index.html` contains `<meta property=\"og:type\" content=\"website\">`.",
+        "The previous title `Romantic Valentine Proposal Single-Page Experience with Interactive Yes/No Buttons` no longer appears anywhere in `frontend/index.html`."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/LastChanceNoModal.tsx",
+          "path": "frontend/index.html",
           "operation": "modify",
-          "description": "Remove the specific user-facing paragraph that contains \"That cat is giving you the side-eye right now...\" and ensure the DialogDescription layout does not leave an empty <p> or visual gap where it was."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Replace the No modal angry cat image with the generated angry panda asset and update related text/alt text to reference a panda.",
-      "acceptanceCriteria": [
-        "The No modal image is loaded from a panda asset under /assets/generated/ and no longer references /assets/generated/angry-sideeye-cat.dim_768x768.png.",
-        "The image alt text (and any other user-facing references in the modal) refers to a panda, not a cat.",
-        "The modal still renders correctly (image sizing/spacing preserved) and the primary/secondary buttons continue to function as before."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/angry-sideeye-panda.dim_768x768.png",
-          "operation": "create",
-          "description": "Add the newly generated image asset required by the BuildRequest: frontend/public/assets/generated/angry-sideeye-panda.dim_768x768.png."
-        },
-        {
-          "path": "frontend/src/components/LastChanceNoModal.tsx",
-          "operation": "modify",
-          "description": "Update the modal image src to point to /assets/generated/angry-sideeye-panda.dim_768x768.png, update the image alt text to refer to a panda (not a cat), and adjust any other user-facing cat references in this modal (e.g., the title emoji/text) while preserving existing sizing/spacing classes and button behaviors."
+          "description": "Within <head>, replace the existing long <title> with exactly `For You ❤️`, add Open Graph tags for og:title/og:description/og:type with the specified values, and ensure the old long title string is removed from the file."
         }
       ]
     }
