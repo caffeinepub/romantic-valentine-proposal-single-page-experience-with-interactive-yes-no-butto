@@ -1,0 +1,97 @@
+{
+  "kind": "build_request",
+  "title": "Reveal love letter and post-Yes floating love notes while keeping love visible throughout",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "text": "Keep romantic love text visible throughout the experience (before and after answering Yes), so the page always shows at least a small set of love notes even after the success/confirmation state is displayed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "And love shoudl appera there always"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Before any button is pressed, the proposal question and an initial set of love notes are visible.",
+        "After clicking/tapping Yes, the confirmation/success UI is shown AND love notes are still visible on the page (e.g., in a persistent section, sidebar, or below the main card), not replaced entirely.",
+        "Love notes remain readable on mobile without requiring horizontal scrolling."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add a long-form love letter (provided by the user) to the app’s centralized content and reveal it after the user clicks/taps Yes, formatted as a readable letter with line breaks/paragraphs and a signature.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "also add letters in the prompt",
+          "My baby,\n\nIf you’re reading this, it means you’ve already seen how much you mean to me...",
+          "Yours,\nAditya ❤️"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The full provided letter text is stored in the centralized content file (frontend/src/content/valentineCopy.ts) so it can be edited in one place.",
+        "The letter is not shown before answering; it becomes visible only after Yes is clicked/tapped.",
+        "The letter preserves paragraph breaks and includes the closing signature (“Yours, Aditya ❤️”) exactly as provided.",
+        "The letter section is mobile-friendly (comfortable line length, spacing, and scroll behavior if needed)."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "After clicking/tapping Yes, display additional small “note/letter” elements that appear progressively (generated short love notes) with soft romantic animations (gentle fade/float), in addition to the main confirmation message.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "also make such that these letters and notes small apperas and you egenrate the small notes for me likr everthing comes after you click yes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A new set of short love notes (distinct from the initial set) is added to the centralized content (frontend/src/content/valentineCopy.ts).",
+        "After Yes is clicked/tapped, the UI progressively reveals multiple small note elements (e.g., one every few hundred milliseconds) with gentle animation (fade/slide/float) and does not require external libraries.",
+        "The small notes are readable and do not overlap critical content on common mobile viewport sizes; if space is limited they wrap/stack gracefully.",
+        "Refreshing the page resets the experience (pre-Yes view shown again) unless existing app behavior already persists state."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Update the post-Yes confirmation copy to use the user-requested romantic line and ensure all user-facing text is in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Display a loving message like:\n“I knew it 💕 I love you forever, my baby.”",
+          "Use English for any user-facing text in the build request."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The primary confirmation headline/message displayed after Yes matches: “I knew it 💕 I love you forever, my baby.” (or includes it verbatim as the main line).",
+        "All user-visible UI strings used for the proposal, buttons, notes, and letter are in English."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (compose them instead).",
+    "Do not modify immutable frontend hook files listed in SYSTEM_CONTEXT (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
+    "Keep the backend as a single Motoko actor; no backend changes are required for this request."
+  ],
+  "nonGoals": [
+    "Rebuilding the app as a single standalone HTML/CSS/JS file (the project uses React/TypeScript in this environment).",
+    "Adding authentication, persistence, or backend storage for the proposal response.",
+    "Adding new external libraries for animations or effects."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

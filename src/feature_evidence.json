@@ -1,0 +1,81 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-keep-romantic-love-text-visible-throughout-the-experience-before-and-after-answering-yes-so-the-page-always-shows-at-least-a-small-set-of-love-notes-even-after-the-success-confirmation-state-is-displayed",
+      "featureTitle": "Keep romantic love text visible throughout the experience (before and after answering Yes), so the page always shows at least a small set of love notes even after the success/confirmation state is displayed.",
+      "files": [
+        "frontend/src/components/ValentineProposal.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-long-form-love-letter-provided-by-the-user-to-the-app-s-centralized-content-and-reveal-it-after-the-user-clicks-taps-yes-formatted-as-a-readable-letter-with-line-breaks-paragraphs-and-a-signature",
+      "featureTitle": "Add a long-form love letter (provided by the user) to the app’s centralized content and reveal it after the user clicks/taps Yes, formatted as a readable letter with line breaks/paragraphs and a signature.",
+      "files": [
+        "frontend/src/components/ValentineProposal.tsx",
+        "frontend/src/content/valentineCopy.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-after-clicking-tapping-yes-display-additional-small-note-letter-elements-that-appear-progressively-generated-short-love-notes-with-soft-romantic-animations-gentle-fade-float-in-addition-to-the-main-confirmation-message",
+      "featureTitle": "After clicking/tapping Yes, display additional small “note/letter” elements that appear progressively (generated short love notes) with soft romantic animations (gentle fade/float), in addition to the main confirmation message.",
+      "files": [
+        "frontend/src/components/ValentineProposal.tsx",
+        "frontend/src/content/valentineCopy.ts",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-post-yes-confirmation-copy-to-use-the-user-requested-romantic-line-and-ensure-all-user-facing-text-is-in-english",
+      "featureTitle": "Update the post-Yes confirmation copy to use the user-requested romantic line and ensure all user-facing text is in English.",
+      "files": [
+        "frontend/src/components/ValentineProposal.tsx",
+        "frontend/src/content/valentineCopy.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,2 +1,3 @@
-# romantic-valentine-proposal-single-page-experience-with-interactive-yes-no-butto
-Exported from Caffeine project: Romantic Valentine Proposal Single-Page Experience with Interactive Yes/No Buttons
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

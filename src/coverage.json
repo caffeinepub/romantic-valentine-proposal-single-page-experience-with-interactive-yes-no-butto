@@ -1,0 +1,81 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-07T23:05:58.821Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 4,
+    "items": [
+      {
+        "id": "REQ-10",
+        "summary": "Update the post-Yes confirmation copy to use the user-requested romantic line and ensure all user-facing text is in English.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/content/valentineCopy.ts",
+          "frontend/src/components/ValentineProposal.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/content/valentineCopy.ts",
+          "frontend/src/components/ValentineProposal.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Keep romantic love text visible throughout the experience (before and after answering Yes), so the page always shows at least a small set of love notes even after the success/confirmation state is displayed.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ValentineProposal.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ValentineProposal.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Add a long-form love letter (provided by the user) to the app’s centralized content and reveal it after the user clicks/taps Yes, formatted as a readable letter with line breaks/paragraphs and a signature.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/content/valentineCopy.ts",
+          "frontend/src/components/ValentineProposal.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/content/valentineCopy.ts",
+          "frontend/src/components/ValentineProposal.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "After clicking/tapping Yes, display additional small “note/letter” elements that appear progressively (generated short love notes) with soft romantic animations (gentle fade/float), in addition to the main confirmation message.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/content/valentineCopy.ts",
+          "frontend/src/components/ValentineProposal.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/content/valentineCopy.ts",
+          "frontend/src/components/ValentineProposal.tsx",
+          "frontend/src/index.css"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/ValentineProposal.tsx",
+    "frontend/src/content/valentineCopy.ts",
+    "frontend/src/index.css",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

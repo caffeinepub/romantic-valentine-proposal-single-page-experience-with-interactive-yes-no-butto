@@ -1,0 +1,8 @@
+{
+  "frontend/src/App.tsx": "Main app component that renders the ValentineProposal component in a full-screen container with overflow control.",
+  "frontend/src/content/valentineCopy.ts": "Centralized content file containing the proposal question, confirmation message (\"I knew it 💕 I love you forever, my baby.\"), initial love notes, progressive notes for post-Yes reveal, and the full love letter with preserved paragraphs and signature.",
+  "frontend/src/hooks/useEvasiveButton.ts": "Custom React hook that manages evasive button behavior with fixed TypeScript types accepting nullable HTMLElement refs, calculating safe positions within a container and handling scale animations for desktop hover and mobile touch events.",
+  "frontend/src/components/ValentineProposal.tsx": "Main Valentine proposal component with persistent love notes visible before and after answering, full letter reveal after Yes, progressive floating notes animation, and responsive mobile-friendly layout using shadcn/ui Card composition.",
+  "frontend/src/index.css": "Global styles with romantic pink/white OKLCH color palette, gradient backgrounds, and custom animations including float, heart-beat, scale-in, spin-slow, fade-in-up, and float-in for progressive note reveals.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic pink color tokens, increased border radius, custom shadows, rounded font family, and animation utilities."
+}
