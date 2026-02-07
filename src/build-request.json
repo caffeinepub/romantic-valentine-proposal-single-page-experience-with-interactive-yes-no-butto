@@ -1,97 +1,56 @@
 {
   "kind": "build_request",
-  "title": "Reveal love letter and post-Yes floating love notes while keeping love visible throughout",
+  "title": "Update No-modal copy and replace angry cat with cute angry panda",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-7",
-      "text": "Keep romantic love text visible throughout the experience (before and after answering Yes), so the page always shows at least a small set of love notes even after the success/confirmation state is displayed.",
+      "id": "REQ-1",
+      "text": "In the \"LastChanceNoModal\" component, remove the user-facing line \"That cat is giving you the side-eye right now...\" from the modal description so it no longer appears anywhere in the popup UI.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "And love shoudl appera there always"
+          "Remove this line\n\nThat cat is giving you the side-eye right now..."
         ]
       },
       "acceptanceCriteria": [
-        "Before any button is pressed, the proposal question and an initial set of love notes are visible.",
-        "After clicking/tapping Yes, the confirmation/success UI is shown AND love notes are still visible on the page (e.g., in a persistent section, sidebar, or below the main card), not replaced entirely.",
-        "Love notes remain readable on mobile without requiring horizontal scrolling."
+        "When the No modal is opened, the text \"That cat is giving you the side-eye right now...\" is not present in the DOM or visible UI.",
+        "No extra blank spacing/empty paragraph is left where the removed line used to be."
       ]
     },
     {
-      "id": "REQ-8",
-      "text": "Add a long-form love letter (provided by the user) to the app’s centralized content and reveal it after the user clicks/taps Yes, formatted as a readable letter with line breaks/paragraphs and a signature.",
+      "id": "REQ-2",
+      "text": "Replace the angry cat in the No modal with a cute little angry panda by updating the modal image to use a new panda asset and updating any related user-facing text/alt text so it no longer refers to a cat.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "also add letters in the prompt",
-          "My baby,\n\nIf you’re reading this, it means you’ve already seen how much you mean to me...",
-          "Yours,\nAditya ❤️"
+          "replace cat with cute little angry panda"
         ]
       },
       "acceptanceCriteria": [
-        "The full provided letter text is stored in the centralized content file (frontend/src/content/valentineCopy.ts) so it can be edited in one place.",
-        "The letter is not shown before answering; it becomes visible only after Yes is clicked/tapped.",
-        "The letter preserves paragraph breaks and includes the closing signature (“Yours, Aditya ❤️”) exactly as provided.",
-        "The letter section is mobile-friendly (comfortable line length, spacing, and scroll behavior if needed)."
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "After clicking/tapping Yes, display additional small “note/letter” elements that appear progressively (generated short love notes) with soft romantic animations (gentle fade/float), in addition to the main confirmation message.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "also make such that these letters and notes small apperas and you egenrate the small notes for me likr everthing comes after you click yes"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A new set of short love notes (distinct from the initial set) is added to the centralized content (frontend/src/content/valentineCopy.ts).",
-        "After Yes is clicked/tapped, the UI progressively reveals multiple small note elements (e.g., one every few hundred milliseconds) with gentle animation (fade/slide/float) and does not require external libraries.",
-        "The small notes are readable and do not overlap critical content on common mobile viewport sizes; if space is limited they wrap/stack gracefully.",
-        "Refreshing the page resets the experience (pre-Yes view shown again) unless existing app behavior already persists state."
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Update the post-Yes confirmation copy to use the user-requested romantic line and ensure all user-facing text is in English.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Display a loving message like:\n“I knew it 💕 I love you forever, my baby.”",
-          "Use English for any user-facing text in the build request."
-        ]
-      },
-      "acceptanceCriteria": [
-        "The primary confirmation headline/message displayed after Yes matches: “I knew it 💕 I love you forever, my baby.” (or includes it verbatim as the main line).",
-        "All user-visible UI strings used for the proposal, buttons, notes, and letter are in English."
+        "The No modal image is loaded from a panda asset under /assets/generated/ and no longer references /assets/generated/angry-sideeye-cat.dim_768x768.png.",
+        "The image alt text (and any other user-facing references in the modal) refers to a panda, not a cat.",
+        "The modal still renders correctly (image sizing/spacing preserved) and the primary/secondary buttons continue to function as before."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (compose them instead).",
-    "Do not modify immutable frontend hook files listed in SYSTEM_CONTEXT (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
-    "Keep the backend as a single Motoko actor; no backend changes are required for this request."
+    "Do not edit files under frontend/src/components/ui (compose existing UI components only).",
+    "Keep the backend as-is; no backend changes are required for this UI-only update."
   ],
   "nonGoals": [
-    "Rebuilding the app as a single standalone HTML/CSS/JS file (the project uses React/TypeScript in this environment).",
-    "Adding authentication, persistence, or backend storage for the proposal response.",
-    "Adding new external libraries for animations or effects."
+    "Changing the overall Valentine proposal flow, evasive No button behavior, or any other copy outside the No modal.",
+    "Adding new backend logic or persistence."
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Cute little angry panda giving a side-eye look, clean illustration style, transparent background (angry-sideeye-panda.dim_768x768.png)"
+    ],
     "edits": []
   }
 }

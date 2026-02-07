@@ -1,78 +1,48 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-07T23:05:58.821Z",
+  "generatedAt": "2026-02-07T23:32:06.968Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 4,
-    "implemented": 4,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-10",
-        "summary": "Update the post-Yes confirmation copy to use the user-requested romantic line and ensure all user-facing text is in English.",
+        "id": "REQ-1",
+        "summary": "In the \"LastChanceNoModal\" component, remove the user-facing line \"That cat is giving you the side-eye right now...\" from the modal description so it no longer appears anywhere in the popup UI.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/content/valentineCopy.ts",
-          "frontend/src/components/ValentineProposal.tsx"
+          "frontend/src/components/LastChanceNoModal.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/content/valentineCopy.ts",
-          "frontend/src/components/ValentineProposal.tsx"
+          "frontend/src/components/LastChanceNoModal.tsx"
         ]
       },
       {
-        "id": "REQ-7",
-        "summary": "Keep romantic love text visible throughout the experience (before and after answering Yes), so the page always shows at least a small set of love notes even after the success/confirmation state is displayed.",
+        "id": "REQ-2",
+        "summary": "Replace the angry cat in the No modal with a cute little angry panda by updating the modal image to use a new panda asset and updating any related user-facing text/alt text so it no longer refers to a cat.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/ValentineProposal.tsx"
+          "frontend/public/assets/generated/angry-sideeye-panda.dim_768x768.png",
+          "frontend/src/components/LastChanceNoModal.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/ValentineProposal.tsx"
-        ]
-      },
-      {
-        "id": "REQ-8",
-        "summary": "Add a long-form love letter (provided by the user) to the app’s centralized content and reveal it after the user clicks/taps Yes, formatted as a readable letter with line breaks/paragraphs and a signature.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/content/valentineCopy.ts",
-          "frontend/src/components/ValentineProposal.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/content/valentineCopy.ts",
-          "frontend/src/components/ValentineProposal.tsx"
-        ]
-      },
-      {
-        "id": "REQ-9",
-        "summary": "After clicking/tapping Yes, display additional small “note/letter” elements that appear progressively (generated short love notes) with soft romantic animations (gentle fade/float), in addition to the main confirmation message.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/content/valentineCopy.ts",
-          "frontend/src/components/ValentineProposal.tsx",
-          "frontend/src/index.css"
-        ],
-        "matchedFiles": [
-          "frontend/src/content/valentineCopy.ts",
-          "frontend/src/components/ValentineProposal.tsx",
-          "frontend/src/index.css"
+          "frontend/public/assets/generated/angry-sideeye-panda.dim_768x768.png",
+          "frontend/src/components/LastChanceNoModal.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/ValentineProposal.tsx",
-    "frontend/src/content/valentineCopy.ts",
-    "frontend/src/index.css",
+    "frontend/public/assets/generated/angry-sideeye-panda.dim_768x768.png",
+    "frontend/src/components/LastChanceNoModal.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

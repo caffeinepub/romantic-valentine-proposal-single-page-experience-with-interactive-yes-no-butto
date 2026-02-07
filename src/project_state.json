@@ -1,94 +1,25 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
-  "summary": "Interactive romantic-themed mobile-friendly Valentine proposal web page (HTML/CSS/JS only) with yes/no interaction, always-visible love text, and post-Yes reveal of generated love notes plus a full love letter.",
-  "architectural_notes": [
-    "Use only HTML, CSS, and vanilla JavaScript (no external frameworks).",
-    "Design should be mobile-friendly/responsive with a romantic pink-and-white color scheme.",
-    "UI includes two buttons (Yes/No) with playful evasive behavior on No.",
-    "Add a post-Yes reveal flow: success animation + show generated micro-notes and the full love letter section.",
-    "Keep love notes as small, consistently displayed UI elements (e.g., floating chips/cards) and/or persist a baseline set pre-Yes."
-  ],
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Cute little angry panda giving a side-eye look, clean illustration style, transparent background (angry-sideeye-panda.dim_768x768.png)",
   "existing_features": [
     {
-      "id": "feature-create-a-single-purpose-mobile-friendly-valentine-proposal-page-that-asks-a-romantic-proposal-question-and-displays-short-love-notes-messages",
-      "title": "Create a single-purpose, mobile-friendly Valentine proposal page that asks a romantic proposal question and displays short love notes/messages.",
+      "id": "feature-in-the-lastchancenomodal-component-remove-the-user-facing-line-that-cat-is-giving-you-the-side-eye-right-now-from-the-modal-description-so-it-no-longer-appears-anywhere-in-the-popup-ui",
+      "title": "In the \"LastChanceNoModal\" component, remove the user-facing line \"That cat is giving you the side-eye right now...\" from the modal description so it no longer appears anywhere in the popup UI.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-apply-a-consistent-romantic-theme-using-a-pink-and-white-color-scheme-with-tasteful-typography-and-ui-styling-appropriate-for-a-valentine-proposal",
-      "title": "Apply a consistent romantic theme using a pink-and-white color scheme, with tasteful typography and UI styling appropriate for a Valentine proposal.",
+      "id": "feature-replace-the-angry-cat-in-the-no-modal-with-a-cute-little-angry-panda-by-updating-the-modal-image-to-use-a-new-panda-asset-and-updating-any-related-user-facing-text-alt-text-so-it-no-longer-refers-to-a-cat",
+      "title": "Replace the angry cat in the No modal with a cute little angry panda by updating the modal image to use a new panda asset and updating any related user-facing text/alt text so it no longer refers to a cat.",
       "reqIds": [
         "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-implement-interactive-behavior-for-the-no-button-so-it-evades-interaction-on-hover-desktop-and-on-touch-start-attempted-tap-mobile-the-button-moves-away-within-the-visible-container-or-shrinks-to-make-it-difficult-to-press",
-      "title": "Implement interactive behavior for the “No” button so it evades interaction: on hover (desktop) and on touch-start/attempted tap (mobile), the button moves away within the visible container or shrinks to make it difficult to press.",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-implement-yes-button-behavior-when-clicked-tapped-show-a-clear-romantic-confirmation-state-e-g-a-success-message-overlay-section-and-hide-disable-the-yes-no-buttons-to-keep-the-experience-single-purpose",
-      "title": "Implement “Yes” button behavior: when clicked/tapped, show a clear, romantic confirmation state (e.g., a success message overlay/section) and hide/disable the Yes/No buttons to keep the experience single-purpose.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-make-the-proposal-question-and-love-notes-easily-customizable-from-a-single-place-in-the-frontend-code-e-g-a-constants-object-array-without-editing-multiple-components-files",
-      "title": "Make the proposal question and love notes easily customizable from a single place in the frontend code (e.g., a constants object/array), without editing multiple components/files.",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-two-generated-romantic-static-images-and-render-them-as-part-of-the-page-design-served-from-frontend-static-assets-not-via-backend-a-subtle-repeating-heart-background-texture-and-a-central-heart-envelope-illustration",
-      "title": "Add two generated romantic static images and render them as part of the page design (served from frontend static assets, not via backend): a subtle repeating heart background texture and a central heart/envelope illustration.",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-keep-romantic-love-text-visible-throughout-the-experience-before-and-after-answering-yes-so-the-page-always-shows-at-least-a-small-set-of-love-notes-even-after-the-success-confirmation-state-is-displayed",
-      "title": "Keep romantic love text visible throughout the experience (before and after answering Yes), so the page always shows at least a small set of love notes even after the success/confirmation state is displayed.",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-long-form-love-letter-provided-by-the-user-to-the-app-s-centralized-content-and-reveal-it-after-the-user-clicks-taps-yes-formatted-as-a-readable-letter-with-line-breaks-paragraphs-and-a-signature",
-      "title": "Add a long-form love letter (provided by the user) to the app’s centralized content and reveal it after the user clicks/taps Yes, formatted as a readable letter with line breaks/paragraphs and a signature.",
-      "reqIds": [
-        "REQ-8"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-after-clicking-tapping-yes-display-additional-small-note-letter-elements-that-appear-progressively-generated-short-love-notes-with-soft-romantic-animations-gentle-fade-float-in-addition-to-the-main-confirmation-message",
-      "title": "After clicking/tapping Yes, display additional small “note/letter” elements that appear progressively (generated short love notes) with soft romantic animations (gentle fade/float), in addition to the main confirmation message.",
-      "reqIds": [
-        "REQ-9"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-post-yes-confirmation-copy-to-use-the-user-requested-romantic-line-and-ensure-all-user-facing-text-is-in-english",
-      "title": "Update the post-Yes confirmation copy to use the user-requested romantic line and ensure all user-facing text is in English.",
-      "reqIds": [
-        "REQ-10"
       ],
       "version": 1
     }
@@ -96,43 +27,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Build a simple romantic Valentine proposal single-page site (HTML/CSS/JS only) with pink/white theme and mobile-friendly layout",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Add interactive Yes/No buttons; make the No button evade taps/clicks (run away or shrink) especially on mobile",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Include short customizable love notes/messages expressing how special she is",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Ensure romantic love text/notes are always visible on the page (not disappearing), with small note styling",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "After clicking Yes, reveal additional generated small love notes and display a full love letter message with a sweet success animation",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Include a customizable long-form love letter section (provided text) as part of the page content, revealed after Yes",
+      "summary": "Update angry-animal pop-up: remove the line 'That cat is giving you the side-eye right now...' and replace the cat with a cute little angry panda.",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "Romantic Valentine Proposal Single-Page Experience with Interactive Yes/No Buttons",
+  "projectName": "Update No-modal copy and replace angry cat with cute angry panda",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

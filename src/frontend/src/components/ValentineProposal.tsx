@@ -4,16 +4,22 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Heart, Sparkles } from 'lucide-react';
 import { valentineContent } from '@/content/valentineCopy';
 import { useEvasiveButton } from '@/hooks/useEvasiveButton';
+import InteractiveLoveLetter from '@/components/InteractiveLoveLetter';
+import FloatingThoughts from '@/components/FloatingThoughts';
+import LastChanceNoModal from '@/components/LastChanceNoModal';
 
 export default function ValentineProposal() {
   const [answered, setAnswered] = useState(false);
+  const [showNoModal, setShowNoModal] = useState(false);
   const [visibleProgressiveNotes, setVisibleProgressiveNotes] = useState<number>(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const evasionArenaRef = useRef<HTMLDivElement>(null);
   const noButtonRef = useRef<HTMLButtonElement>(null);
+  const yesButtonRef = useRef<HTMLButtonElement>(null);
 
   const { position, scale, evade } = useEvasiveButton({
-    containerRef,
+    containerRef: evasionArenaRef,
     buttonRef: noButtonRef,
+    obstacleRefs: [yesButtonRef],
     enabled: !answered
   });
 
@@ -47,10 +53,19 @@ export default function ValentineProposal() {
     }
   };
 
+  const handleNoClick = () => {
+    if (!answered) {
+      setShowNoModal(true);
+    }
+  };
+
   return (
     <div className="relative min-h-screen w-full flex flex-col items-center justify-start p-4 overflow-y-auto">
-      {/* Background pattern overlay */}
-      <div className="absolute inset-0 bg-gradient-radial opacity-40 pointer-events-none" />
+      {/* Hearts background pattern */}
+      <div className="fixed inset-0 hearts-background pointer-events-none z-0" />
+      
+      {/* Background gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-radial opacity-40 pointer-events-none z-0" />
       
       <div className="relative z-10 w-full max-w-4xl py-8 space-y-6">
         {!answered ? (
@@ -75,37 +90,44 @@ export default function ValentineProposal() {
               </CardHeader>
 
               <CardContent className="space-y-6">
-                {/* Buttons container */}
-                <div
-                  ref={containerRef}
-                  className="relative min-h-[120px] flex items-center justify-center gap-4 py-8"
-                >
-                  {/* Yes button */}
-                  <Button
-                    size="lg"
-                    onClick={handleYes}
-                    className="text-lg md:text-xl px-8 md:px-12 py-6 md:py-8 font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-                  >
-                    <Heart className="w-5 h-5 md:w-6 md:h-6 mr-2 fill-current" />
-                    Yes! 💖
-                  </Button>
+                {/* Buttons container - responsive layout */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 py-8">
+                  {/* Yes button - in normal flow */}
+                  <div className="flex-shrink-0">
+                    <Button
+                      ref={yesButtonRef}
+                      size="lg"
+                      onClick={handleYes}
+                      className="text-lg md:text-xl px-8 md:px-12 py-6 md:py-8 font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+                    >
+                      <Heart className="w-5 h-5 md:w-6 md:h-6 mr-2 fill-current" />
+                      Yes! 💖
+                    </Button>
+                  </div>
 
-                  {/* No button with evasive behavior */}
-                  <Button
-                    ref={noButtonRef}
-                    size="lg"
-                    variant="outline"
-                    onMouseEnter={handleNoHover}
-                    onTouchStart={handleNoTouch}
-                    onPointerDown={handleNoPointerDown}
-                    className="text-lg md:text-xl px-8 md:px-12 py-6 md:py-8 font-bold shadow-lg transition-all duration-200 absolute"
-                    style={{
-                      transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
-                      touchAction: 'none'
-                    }}
+                  {/* Evasion arena for No button */}
+                  <div
+                    ref={evasionArenaRef}
+                    className="relative flex-shrink-0 w-[200px] h-[80px] sm:w-[240px] sm:h-[100px]"
                   >
-                    No 💔
-                  </Button>
+                    {/* No button with evasive behavior */}
+                    <Button
+                      ref={noButtonRef}
+                      size="lg"
+                      variant="outline"
+                      onMouseEnter={handleNoHover}
+                      onTouchStart={handleNoTouch}
+                      onPointerDown={handleNoPointerDown}
+                      onClick={handleNoClick}
+                      className="text-lg md:text-xl px-8 md:px-12 py-6 md:py-8 font-bold shadow-lg transition-all duration-200 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                      style={{
+                        transform: `translate(calc(-50% + ${position.x}px), calc(-50% + ${position.y}px)) scale(${scale})`,
+                        touchAction: 'none'
+                      }}
+                    >
+                      No 💔
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -156,23 +178,8 @@ export default function ValentineProposal() {
               </CardContent>
             </Card>
 
-            {/* Love letter card - only visible after Yes */}
-            <Card className="backdrop-blur-sm bg-card/95 shadow-xl border-2 border-primary/10 animate-fade-in-up">
-              <CardHeader>
-                <CardTitle className="text-2xl md:text-3xl text-primary text-center flex items-center justify-center gap-2">
-                  <Heart className="w-6 h-6 fill-primary" />
-                  A Letter For You
-                  <Heart className="w-6 h-6 fill-primary" />
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="px-6 md:px-12 py-6">
-                <div className="prose prose-pink max-w-none">
-                  <div className="whitespace-pre-wrap text-sm md:text-base leading-relaxed text-foreground/90">
-                    {valentineContent.loveLetter}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            {/* Interactive love letter - replaces static letter */}
+            <InteractiveLoveLetter />
 
             {/* Persistent love notes - still visible after answering */}
             <Card className="backdrop-blur-sm bg-card/95 shadow-xl border-2 border-primary/10">
@@ -205,24 +212,19 @@ export default function ValentineProposal() {
                 ))}
               </div>
             )}
+
+            {/* Floating thoughts at bottom */}
+            <FloatingThoughts />
           </>
         )}
       </div>
 
-      {/* Footer */}
-      <footer className="relative z-20 w-full text-center text-sm text-foreground/60 py-6 mt-8">
-        <p>
-          © 2026. Built with <Heart className="w-4 h-4 inline fill-primary text-primary" /> using{' '}
-          <a
-            href="https://caffeine.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-primary transition-colors underline"
-          >
-            caffeine.ai
-          </a>
-        </p>
-      </footer>
+      {/* Last Chance No Modal */}
+      <LastChanceNoModal
+        open={showNoModal}
+        onOpenChange={setShowNoModal}
+        onConfirmYes={handleYes}
+      />
     </div>
   );
 }

@@ -1,90 +1,41 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Persistent love notes with post-Yes letter reveal and progressive floating notes",
+  "title": "Update No-modal copy and swap angry cat image for angry panda",
   "requirements": [
     {
-      "id": "REQ-7",
-      "summary": "Keep love notes visible before and after answering Yes via a persistent, mobile-friendly notes section.",
+      "id": "REQ-1",
+      "summary": "Remove the cat side-eye line from the LastChanceNoModal description without leaving empty spacing.",
       "acceptanceCriteria": [
-        "Before any button is pressed, the proposal question and an initial set of love notes are visible.",
-        "After clicking/tapping Yes, the confirmation/success UI is shown AND love notes are still visible on the page (e.g., in a persistent section, sidebar, or below the main card), not replaced entirely.",
-        "Love notes remain readable on mobile without requiring horizontal scrolling."
+        "When the No modal is opened, the text \"That cat is giving you the side-eye right now...\" is not present in the DOM or visible UI.",
+        "No extra blank spacing/empty paragraph is left where the removed line used to be."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/ValentineProposal.tsx",
+          "path": "frontend/src/components/LastChanceNoModal.tsx",
           "operation": "modify",
-          "description": "Refactor layout so an initial set of love notes remains visible in a persistent section both before and after the answered state (e.g., below the main card with responsive widths and wrapping). Use shadcn/ui Card composition (do not edit files under frontend/src/components/ui). Verify the component's usage instructions before implementing."
+          "description": "Remove the specific user-facing paragraph that contains \"That cat is giving you the side-eye right now...\" and ensure the DialogDescription layout does not leave an empty <p> or visual gap where it was."
         }
       ]
     },
     {
-      "id": "REQ-8",
-      "summary": "Add a centralized long-form love letter and reveal it only after Yes, preserving paragraphs and signature.",
+      "id": "REQ-2",
+      "summary": "Replace the No modal angry cat image with the generated angry panda asset and update related text/alt text to reference a panda.",
       "acceptanceCriteria": [
-        "The full provided letter text is stored in the centralized content file (frontend/src/content/valentineCopy.ts) so it can be edited in one place.",
-        "The letter is not shown before answering; it becomes visible only after Yes is clicked/tapped.",
-        "The letter preserves paragraph breaks and includes the closing signature (“Yours, Aditya ❤️”) exactly as provided.",
-        "The letter section is mobile-friendly (comfortable line length, spacing, and scroll behavior if needed)."
+        "The No modal image is loaded from a panda asset under /assets/generated/ and no longer references /assets/generated/angry-sideeye-cat.dim_768x768.png.",
+        "The image alt text (and any other user-facing references in the modal) refers to a panda, not a cat.",
+        "The modal still renders correctly (image sizing/spacing preserved) and the primary/secondary buttons continue to function as before."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/content/valentineCopy.ts",
-          "operation": "modify",
-          "description": "Add the provided long-form love letter to centralized content (including the closing signature “Yours, Aditya ❤️” exactly as provided) in a way that preserves paragraph breaks for rendering."
+          "path": "frontend/public/assets/generated/angry-sideeye-panda.dim_768x768.png",
+          "operation": "create",
+          "description": "Add the newly generated image asset required by the BuildRequest: frontend/public/assets/generated/angry-sideeye-panda.dim_768x768.png."
         },
         {
-          "path": "frontend/src/components/ValentineProposal.tsx",
+          "path": "frontend/src/components/LastChanceNoModal.tsx",
           "operation": "modify",
-          "description": "Render the love letter only after Yes is clicked, using formatting that preserves line breaks/paragraphs (e.g., whitespace-preserving rendering) and a readable, mobile-friendly letter container (comfortable max width, spacing, and vertical scrolling if needed). Use shadcn/ui Card composition (do not edit files under frontend/src/components/ui). Verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "summary": "After Yes, progressively reveal additional short love notes with gentle fade/float animations without external libraries.",
-      "acceptanceCriteria": [
-        "A new set of short love notes (distinct from the initial set) is added to the centralized content (frontend/src/content/valentineCopy.ts).",
-        "After Yes is clicked/tapped, the UI progressively reveals multiple small note elements (e.g., one every few hundred milliseconds) with gentle animation (fade/slide/float) and does not require external libraries.",
-        "The small notes are readable and do not overlap critical content on common mobile viewport sizes; if space is limited they wrap/stack gracefully.",
-        "Refreshing the page resets the experience (pre-Yes view shown again) unless existing app behavior already persists state."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/content/valentineCopy.ts",
-          "operation": "modify",
-          "description": "Add a post-Yes-only array of short generated love notes (distinct from the initial loveNotes) to centralized content for progressive reveal."
-        },
-        {
-          "path": "frontend/src/components/ValentineProposal.tsx",
-          "operation": "modify",
-          "description": "Implement progressive reveal after Yes (timer-driven state that shows one additional note every few hundred milliseconds) and render the notes in a wrap/stack layout that avoids overlapping critical content on mobile. Ensure no persistence is introduced so refresh resets to pre-Yes. Verify any shadcn/ui composition usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add lightweight CSS keyframes/utility classes for gentle romantic note animations (e.g., fade-in + subtle upward float) to support progressive note appearance without adding new libraries."
-        }
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "summary": "Update post-Yes confirmation copy to the requested romantic English line and ensure all UI text is English.",
-      "acceptanceCriteria": [
-        "The primary confirmation headline/message displayed after Yes matches: “I knew it 💕 I love you forever, my baby.” (or includes it verbatim as the main line).",
-        "All user-visible UI strings used for the proposal, buttons, notes, and letter are in English."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/content/valentineCopy.ts",
-          "operation": "modify",
-          "description": "Update the primary confirmation message in centralized content so the main post-Yes line is exactly: “I knew it 💕 I love you forever, my baby.” and ensure content strings (proposal question, notes, letter text) are English."
-        },
-        {
-          "path": "frontend/src/components/ValentineProposal.tsx",
-          "operation": "modify",
-          "description": "Ensure the post-Yes headline uses the updated centralized confirmation line verbatim as the main line, and verify any remaining user-facing strings in the UI (e.g., button labels, supporting paragraph text) are in English. Verify any shadcn/ui composition usage instructions before implementing."
+          "description": "Update the modal image src to point to /assets/generated/angry-sideeye-panda.dim_768x768.png, update the image alt text to refer to a panda (not a cat), and adjust any other user-facing cat references in this modal (e.g., the title emoji/text) while preserving existing sizing/spacing classes and button behaviors."
         }
       ]
     }

@@ -1,13 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Reveal a long-form love letter and progressively display additional romantic notes after “Yes,” while keeping love notes visible throughout the entire experience.
+**Goal:** Update the No modal copy and swap the angry cat image for a cute angry panda.
 
 **Planned changes:**
-- Ensure an initial set of love notes is visible on the pre-Yes proposal view.
-- Keep love notes visible after clicking/tapping “Yes” (confirmation state should not replace/remove them; they remain readable on mobile).
-- Add the provided long-form love letter to centralized content (`frontend/src/content/valentineCopy.ts`) and display it only after “Yes,” preserving paragraphs/line breaks and the exact signature (“Yours, Aditya ❤️”).
-- Add a new post-Yes set of short love notes to centralized content and progressively reveal them after “Yes” with gentle fade/float-style animations (no external libraries), ensuring they don’t overlap key content on mobile.
-- Update the post-Yes confirmation line to: “I knew it 💕 I love you forever, my baby.” and ensure all user-visible text is in English.
+- Remove the line “That cat is giving you the side-eye right now...” from the `LastChanceNoModal` description with no leftover blank spacing.
+- Replace the No modal image asset to use a new panda image under `/assets/generated/` instead of the current cat image.
+- Update the image alt text and any other user-facing references in the No modal to refer to a panda (not a cat), keeping layout and button behavior unchanged.
 
-**User-visible outcome:** Before answering, the user sees the proposal and some love notes. After tapping “Yes,” they see the updated confirmation message, the full formatted love letter, and additional small love notes that appear progressively with soft animations—while love notes remain visible and readable throughout, including on mobile.
+**User-visible outcome:** Opening the No modal no longer shows the removed cat line and displays a cute angry panda image with panda-appropriate text.
